@@ -18,6 +18,8 @@ Java virtual machine that provides runtime environment to execute java byte code
 A Java program is excution is controlled by JVM.
 
 JVM architecture
+![Alt text][id]
+[id]:/images/JVMArchitecture.png
 ![alt JVM Architecture] (/images/JVM Architecture.png)
 
 
