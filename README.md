@@ -20,6 +20,6 @@ A Java program is excution is controlled by JVM.
 JVM architecture
 ![Alt text][id]
 [id]:/images/JVMArchitecture.png
-![alt JVM Architecture] (/images/JVMArchitecture.png?raw=true)
+![alt JVM Architecture] (images/JVMArchitecture.png?raw=true)
 
 
