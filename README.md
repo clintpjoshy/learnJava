@@ -125,7 +125,7 @@ Here getDiscount is a method and any variables inside it like discount is a loca
 
 #### Array in Jave
 Array is a container object that holds similar data types. It is also known as static data stucture because size needs to be declared prior to declaring it.
-An array is a primitive or reference type. It's memory is in the heap area.
+An array is a primitive or reference type. It's memory is in the heap area (Check JVM Architecture link above to understand this).
 
 *Array Declaration*
 datatype[] identifier;
