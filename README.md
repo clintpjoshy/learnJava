@@ -69,14 +69,20 @@ Automatic type conversion are taken place when the two types are compatible with
 
 `byte -> short -> int -> long -> float -> double`
 
-Ex: `int i = 100;
-     long l = i;`
+Ex: 
+```
+     int i = 100;
+     long l = i;
+```
 Here implicit conversion takes place because int data type is smaller than long data type.
 
 **Widening or Explicit conversion**
 This is needed when the target data type is smaller than source data type.
-Ex: `double d = 100.04;
-     long l = (long)d; // 100`
+Ex: 
+```
+     double d = 100.04;
+     long l = (long)d; // 100
+```
 
 #### Variable
 Any information in the computer is stored at an address in a computer's memory. This address is complex and hard to remember. Therefore this address is named and this naming is called `variable`. Variable is the memory location in a computer.
@@ -94,7 +100,8 @@ class Student
 {
   String name;
   int age;
-}```
+}
+```
 
 Both name and age are instance variable of the class Student.
 
@@ -106,7 +113,8 @@ class Student
   String name;
   int age;
   static int instituteCode = 1101;
-}```
+}
+```
 Here instituteCode is a constant will not change. These variables can be called as class variable. This variable will remain const for all the instances of this class. Static variable can be accessed only using its classname and not with the objects (instance) name. Static variable cannot be declared inside an object (local variable).
 
 #### Local Variables  
@@ -120,7 +128,8 @@ class Student
      discount=price*(20/100);
      return discount;
    }
-}```
+}
+```
 Here getDiscount is a method and any variables inside it like discount is a local variable. 
 
 #### Array in Jave
@@ -137,7 +146,8 @@ int[] arr;
 char[] arr;
 int[][] arr; // two dimensional array
 also,
-int arr[];```
+int arr[];
+```
 
 *Initialization of an Array*
 `new` is used to inititazed an array.
