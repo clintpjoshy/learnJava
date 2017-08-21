@@ -89,29 +89,29 @@ There are three types of variables in Java:
 #### Instance Variable
 Variables that are declared inside a class but outside method, constructor, or block.
 Instance variables are also known as object property or field. This property is specific to each object of this class and will not effect the value of this variable even if it is changed by any one of the object.
-`
+```
 class Student 
 {
   String name;
   int age;
-}`
+}```
 
 Both name and age are instance variable of the class Student.
 
 #### Static Variable
 This variable is declared using a `static` keyword. This is initialized only once. This can also be used to declare a const.
-`
+```
 class Student
 {
   String name;
   int age;
   static int instituteCode = 1101;
-}`
+}```
 Here instituteCode is a constant will not change. These variables can be called as class variable. This variable will remain const for all the instances of this class. Static variable can be accessed only using its classname and not with the objects (instance) name. Static variable cannot be declared inside an object (local variable).
 
 #### Local Variables  
 Local variable are declared in method, constructor, and block. These variables are destroyed once method, constructor, and block are ended. It is created only when methods, constructors, and blocks are initiated. Local variables resides in a stack. Access modifiers are not used for local variables.
-`
+```
 class Student
 {
   float getDiscount (int price)
@@ -120,7 +120,7 @@ class Student
      discount=price*(20/100);
      return discount;
    }
-}`
+}```
 Here getDiscount is a method and any variables inside it like discount is a local variable. 
 
 #### Array in Jave
@@ -132,19 +132,19 @@ datatype[] identifier;
 or
 datatype identifier[];
 
-`
+```
 int[] arr;
 char[] arr;
 int[][] arr; // two dimensional array
 also,
-int arr[];
+int arr[];```
 
 *Initialization of an Array*
 `new` is used to inititazed an array.
 
-int[] = new int[10] // an empty array with length 10 is created.
+```int[] = new int[10]``` // an empty array with length 10 is created.
 or 
-int[] arr = {10, 20, 30, 40}; // a non empty array with elements specified.
+```int[] arr = {10, 20, 30, 40};``` // a non empty array with elements specified.
 
 *Accessing array Elements*
 Elements of an array can accessed immediately if the know what index value is needed.
