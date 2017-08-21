@@ -45,13 +45,13 @@ These 8 datatypes can be grouped into 4 main groups:
 	* Int => 4 bytes Ex: `int i=10`
 	* Long => 8 bytes Ex: `long l=10`
 2. Floating Point Number
-	a. Float => 4 bytes Ex: `float ff=10.3f`. Default value is 0.0f
-	b. Double => 8 bytes Ex: `double db=11.123`. Default value is 0.0d
+	* Float => 4 bytes Ex: `float ff=10.3f`. Default value is 0.0f
+	* Double => 8 bytes Ex: `double db=11.123`. Default value is 0.0d
 3. Characters
-	a. Char => 2 bytes. This is to represent the symbols in character set like numbers and letters.
+	* Char => 2 bytes. This is to represent the symbols in character set like numbers and letters.
 4. Boolean
-	a. True
-	b. False
+	* True
+	* False
 
 Non Primitive (reference) data types are to do with Objects. A data type can never be changed.
 
@@ -88,3 +88,68 @@ There are three types of variables in Java:
 
 #### Instance Variable
 Variables that are declared inside a class but outside method, constructor, or block.
+Instance variables are also known as object property or field. This property is specific to each object of this class and will not effect the value of this variable even if it is changed by any one of the object.
+`
+class Student 
+{
+  String name;
+  int age;
+}`
+
+Both name and age are instance variable of the class Student.
+
+#### Static Variable
+This variable is declared using a `static` keyword. This is initialized only once. This can also be used to declare a const.
+`
+class Student
+{
+  String name;
+  int age;
+  static int instituteCode = 1101;
+}`
+Here instituteCode is a constant will not change. These variables can be called as class variable. This variable will remain const for all the instances of this class. Static variable can be accessed only using its classname and not with the objects (instance) name. Static variable cannot be declared inside an object (local variable).
+
+#### Local Variables  
+Local variable are declared in method, constructor, and block. These variables are destroyed once method, constructor, and block are ended. It is created only when methods, constructors, and blocks are initiated. Local variables resides in a stack. Access modifiers are not used for local variables.
+`
+class Student
+{
+  float getDiscount (int price)
+   {
+     float discount;
+     discount=price*(20/100);
+     return discount;
+   }
+}`
+Here getDiscount is a method and any variables inside it like discount is a local variable. 
+
+#### Array in Jave
+Array is a container object that holds similar data types. It is also known as static data stucture because size needs to be declared prior to declaring it.
+An array is a primitive or reference type. It's memory is in the heap area.
+
+*Array Declaration*
+datatype[] identifier;
+or
+datatype identifier[];
+
+`
+int[] arr;
+char[] arr;
+int[][] arr; // two dimensional array
+also,
+int arr[];
+
+*Initialization of an Array*
+`new` is used to inititazed an array.
+
+int[] = new int[10] // an empty array with length 10 is created.
+or 
+int[] arr = {10, 20, 30, 40}; // a non empty array with elements specified.
+
+*Accessing array Elements*
+Elements of an array can accessed immediately if the know what index value is needed.
+ex: `arr[3]` returns 40 from the above array. 
+Length of an array can be found as follows `arr.length`
+
+#### foreach and enhanced for loop ####
+
