@@ -16,6 +16,8 @@ Just my personal repo to learn java. <br />
 Java virtual machine that provides runtime environment to execute java byte code. Java files (\*.java) into (\*.class) files which are bytecodes that are understood by JVM. 
 A Java program is excution is controlled by JVM.
 
+Java is compiled and interpreted language. During compilation `.java` is converted into `.javac` which is byte code. This byte code cannot be executed on hardware like a complied C code. This byte code needs to be interpreted by JVM during run time to be executed. There java can be called a comile once run anywhere. This makes java platform independent. One one the main disadvantages of compilted languages like C is that the binary code is not platform independent (learn more about this).  
+
 JVM architecture
 [JVM Architecture](http://www.studytonight.com/java/component-of-java)
 
@@ -38,10 +40,10 @@ A primitive data type cannot be changed once declared. But their values can be c
 
 These 8 datatypes can be grouped into 4 main groups:
 1. Integers
-	a. Byte => 1 byte Ex: `byte b=10`
-	b. Short => 2 bytes Ex: `short s=11`
-	c. Int => 4 bytes Ex: `int i=10`
-	d. Long => 8 bytes Ex: `long l=10`
+	* Byte => 1 byte Ex: `byte b=10`
+	* Short => 2 bytes Ex: `short s=11`
+	* Int => 4 bytes Ex: `int i=10`
+	* Long => 8 bytes Ex: `long l=10`
 2. Floating Point Number
 	a. Float => 4 bytes Ex: `float ff=10.3f`. Default value is 0.0f
 	b. Double => 8 bytes Ex: `double db=11.123`. Default value is 0.0d
