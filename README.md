@@ -132,7 +132,7 @@ class Student
 ```
 Here getDiscount is a method and any variables inside it like discount is a local variable. 
 
-#### Array in Jave
+#### Array in Java
 Array is a container object that holds similar data types. It is also known as static data stucture because size needs to be declared prior to declaring it.
 An array is a primitive or reference type. It's memory is in the heap area (Check JVM Architecture link above to understand this).
 
@@ -179,24 +179,24 @@ public static void main(String[] args)
 ```
 Output for above code is `10 20 30`.
 
-#### Multi - Dimensional Array
+#### Multi - Dimensional Array(md)
 These types of arrays can have multiple rows and columns.
-	* #### Array Declaration
-        - `datatype[][] identifier;`
-          or 
-          `datatype identifier[][];`
-	* #### Initialization of Array
-          `new`	operator is used to initialize these arrays
-	- `int[][] arr = new int[10][10];` // 10 by 10 array
-           or
-           `int[][] arr = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};` // 3 by 5 array 
-	* Accessing array element
-	   `arr[i][j]` // Access element at row i and column j
-	   Ex.
-	   ```
-	   int arr[ ][ ] = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};
-           System.out.println(arr[1][3]); // This returns 9.
-	   ```
+#### Array Declaration (md)
+`datatype[][] identifier;`
+or
+`datatype identifier[][];`
+#### Initialization of Array (md)
+`new` operator is used to initialize these arrays
+`int[][] arr = new int[10][10];` // 10 by 10 array
+or
+`int[][] arr = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};` // 3 by 5 array 
+#### Accessing array element (md)
+`arr[i][j]` // Access element at row i and column j
+Ex.
+```
+int arr[ ][ ] = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};
+System.out.println(arr[1][3]); // This returns 9.
+```
 #### Jagged Array
 This is an array that has unequal size of rows
 This array can be initiated with a `new` opetator.
