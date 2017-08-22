@@ -237,3 +237,116 @@ a	b	a&b	a|b	a^b
 1	0	0	1	1
 1	1	1	1	0
 ```
+Bitwise shift operators is used to shift bit values of a value. Left operand (a) specifies the value to be shifted and right operand (b)
+Ex.
+```
+a = 0001000
+b = 2
+a << b = 0100000
+a >> b = 0000010
+```
+
+#### Assignment Operator
+`=, +=, -=, *=, /=, %=`
+
+#### Misc Operator
+Ternary Operator: `a ? b : c` If `a` is true then take `b` as the value otherwise take `c` as the value.
+
+#### Instance Operator
+This operator checks if an object is of a particular type (class type or interface type).
+
+#### OOPS Concepts
+** Features of OOPS **
+	* Inheritance
+	* Polymorphism
+	* Encapsulation
+	* Abstraction
+** Class **
+A class is a template or blueprint that describes the behaviors and states of a particular entity. This class can be used to create objects from it and it can be said that objects are instances of aclass. 
+A class can contain both data (variables)  and methods (code) that acts on that data. Variables inside a class are callled instance variables. The code that acts on these variables are called as methods. If a class is considered a ice cube tray then ice cubes are objects.
+
+** Rules of Java Class **
+	* It can only have public or default(no modifier) access specifier.
+	* It can either be abstract, final, and concrete (normal class).
+	* It must have a class keyword followed by a legal identifier.
+	* It can extend one parent class. By default, it will extend java.lang.Object.
+	* It can implement any number of comma-seperated interfaces.
+	* Instance variables and methods (members of a class) are declared in a set of `{}` braces.
+	* Each `.java` source file can only have one public class. A source file can have any number of default visible classes.
+	* The source file name must match the public class name and must have a .java suffix.
+Ex. of a class.
+```
+class Student
+{
+  String name;
+  int rollno;
+  int age;
+}
+```
+
+If the above class is instantiated using `new` then it becomes an object.
+Ex.
+`Student std = new Student();`
+Here `std` is an instance/object of the Student class. The `new` keyword creates an actual copy of the object and assigns it to variable `std`. This will be stored in the heap area of the memory. `new` operator dynamically assigns memory for an object.
+
+** Initializing a Class ** 
+A class can be initiated when an instance of a class is created using a `new` operator.
+A class is also initiated when a static method of a class is invoked or a static field of a class is assigned.
+
+** Copying an entire Java object with its state **
+`.clone()` method can be used to clone an entire object.
+
+#### Methods in Java
+Method describes the behavior of an object.
+
+Ex.
+```
+public String getName(String st)
+{
+  String name = 'Clint';
+  name += st;
+  return name;
+}
+```
+Here,
+` public` is the modifier, `String` is the return datatype, `getName` is the method name, and `String st` is the parameter that's passed in when the method is called.
+
+Difference between parameter and argumet:  Parameter is something that is passed into method when defining a method and argument is something that is passed into a function when it is called.
+Ex.
+```
+public void sum(int x, int y) {
+  System.out.println(x + y);
+};
+public static void main(String[] args)
+{
+  Test b = new Test();
+  b.sum (10, 20);
+};
+```
+`sum(int x, int y);` //This is a parameter
+and 
+`sum(10, 20);` // This is a argument.
+
+Two ways to pass arguments to a method.
+ `call-by-value` and `call-by-reference`
+** call-by-value** 
+In this method a copy of an argument is passed into a method and changes made to this argument value inside the method will have no effect on the argument.
+Ex.
+```
+public class Test
+{
+  public void callByValue(int x)
+  {
+    x = 100;
+  }
+  public static void main(String[] args)
+  {
+    int x = 50;
+    Test t = new Test();
+    t.callByValue(x);
+    System.out.println(x); //50
+  }
+}
+```
+**Method Overloading**
+
