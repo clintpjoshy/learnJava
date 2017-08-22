@@ -207,3 +207,31 @@ arr[0] = new int[3];
 arr[1] = new int[5];
 arr[2] = new int[8];
 ```
+#### Operators in Java
+	* Arithmatic
+	* Relation
+	* Logical
+	* Bitwise
+	* Assignment
+	* Conditional
+	* Misc
+
+#### Arithmatic
+`+, -, *, /, %, ++, --`
+
+#### Relation
+`==, !=, <, >, <=, >=`
+
+#### Logical
+`&&, ||, !`
+
+Bitwise operators can be applied to integer types like long, int, short, char, and byte
+
+#### Bitwise
+`&, |, ^, <<, >>`
+```
+**a**	**b**	**a&b**	**a|b**	**a^b**
+0	0	0	0	0
+0	1	0	1	1
+1	0	0	1	1
+1	1	1	1	0
