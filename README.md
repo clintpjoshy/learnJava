@@ -161,5 +161,49 @@ Elements of an array can accessed immediately if the know what index value is ne
 ex: `arr[3]` returns 40 from the above array. 
 Length of an array can be found as follows `arr.length`
 
-#### foreach and enhanced for loop ####
+#### foreach or enhanced for loop ####
+This a special type of for loop syntax where items can be accessed without using the index.
+Ex.
+```
+class Test
+{
+public static void main(String[] args)
+  {
+    int[] arr = {10, 20, 30};
+    for (int x : arr) 
+    {
+      System.out.println(x);
+    }
+  }
+}
+```
+Output for above code is `10 20 30`.
 
+#### Multi - Dimensional Array
+These types of arrays can have multiple rows and columns.
+	* #### Array Declaration
+        - `datatype[][] identifier;`
+          or 
+          `datatype identifier[][];`
+	* #### Initialization of Array
+          `new`	operator is used to initialize these arrays
+	- `int[][] arr = new int[10][10];` // 10 by 10 array
+           or
+           `int[][] arr = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};` // 3 by 5 array 
+	* Accessing array element
+	   `arr[i][j]` // Access element at row i and column j
+	   Ex.
+	   ```
+	   int arr[ ][ ] = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};
+           System.out.println(arr[1][3]); // This returns 9.
+	   ```
+#### Jagged Array
+This is an array that has unequal size of rows
+This array can be initiated with a `new` opetator.
+Ex.
+```
+int[][] arr = new int[3][];
+arr[0] = new int[3];
+arr[1] = new int[5];
+arr[2] = new int[8];
+```
