@@ -230,8 +230,10 @@ Bitwise operators can be applied to integer types like long, int, short, char, a
 #### Bitwise
 `&, |, ^, <<, >>`
 ```
-**a**	**b**	**a&b**	**a|b**	**a^b**
+a	b	a&b	a|b	a^b
+
 0	0	0	0	0
 0	1	0	1	1
 1	0	0	1	1
 1	1	1	1	0
+```
