@@ -311,7 +311,7 @@ public String getName(String st)
 Here,
 ` public` is the modifier, `String` is the return datatype, `getName` is the method name, and `String st` is the parameter that's passed in when the method is called.
 
-##### modifier:
+##### Modifier:
 Modifier is access type of method.
 
 ##### Return datatype:
@@ -357,5 +357,13 @@ public class Test
   }
 }
 ```
-####Method Overloading
 
+#### Call-by-reference
+In this call a copy of the argument is passed to a method and any changes made to this value inside the method changes the value of the argument.
+# There's no call by reference in Java.
+
+####Method Overloading
+This occurs when 2 or more methods have same name but different parameters in a class. This will happen only when same names are used in same class.
+	* One of the ways java supports polymorphism is method overloading.
+	* Method overloading can be done by changing the number of arguments or by changing the data type of arguments.
+	* Method overloading does **not** happen when there are same names and parameter but different **return** **type**
