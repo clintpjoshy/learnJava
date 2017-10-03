@@ -432,7 +432,7 @@ When java looks for a particular method using it's parameter type and couldn't f
                 ar.find(8 * 5);
                 ar.find(2, 4, 5):
 
-            // This will output based on the following algorithm: check for find method with 2 parameters which are long. If that couldn't be found then convert find (int int ) to find (long long). i.e. ar.find (8, 5) is of type find (int int). This will be converted to find (long long) using typecasting.
+            /* This will output based on the following algorithm: check for find method with 2 parameters which are long. If that couldn't be found then convert find (int int ) to find (long long). i.e. ar.find (8, 5) is of type find (int int). This will be converted to find (long long) using typecasting. */
             }
           }
 	```
