@@ -26,7 +26,7 @@ To compile a file run javac `fileName`. filename includes the file extension <br
 After compilation, the class (.class) file  can be run as java `fileName`.
 
 After compilation the `.java` file is converted into byte-code by a compiler. This byte-code is then loaded by the class loader and the following steps are followed:
-	** Class-file -> class-loader -> byte-code verifier -> interpreter -> runtime -> hardware**
+	` Class-file -> class-loader -> byte-code verifier -> interpreter -> runtime -> hardware`
 
 #### Data Types
 2 types of data type:
@@ -59,12 +59,12 @@ Non Primitive (reference) data types are to do with Objects. A data type can nev
 These are the names used for classes, methods, interfaces, and variables
 
 #### Type Casting
-Assigning a value of one data type into a variable of different data type is called **Type Casting**
+Assigning a value of one data type into a variable of different data type is called `Type Casting`
 
 Ex: `int x = 10;
      byte y = (byte)x`
 
-**Widening or Automatic type conversion**
+`Widening or Automatic type conversion`
 Automatic type conversion are taken place when the two types are compatible with each other and when the target type is larger than the source type.
 
 `byte -> short -> int -> long -> float -> double`
@@ -76,7 +76,7 @@ Ex:
 ```
 Here implicit conversion takes place because int data type is smaller than long data type.
 
-**Widening or Explicit conversion**
+`Widening or Explicit conversion`
 This is needed when the target data type is smaller than source data type.
 Ex: 
 ```
@@ -136,7 +136,7 @@ Here getDiscount is a method and any variables inside it like discount is a loca
 Array is a container object that holds similar data types. It is also known as static data stucture because size needs to be declared prior to declaring it.
 An array is a primitive or reference type. It's memory is in the heap area (Check JVM Architecture link above to understand this).
 
-*Array Declaration*
+#### Array Declaration
 datatype[] identifier;
 or
 datatype identifier[];
@@ -156,12 +156,12 @@ int arr[];
 or 
 ```int[] arr = {10, 20, 30, 40};``` // a non empty array with elements specified.
 
-*Accessing array Elements*
+#### Accessing array Elements
 Elements of an array can accessed immediately if the know what index value is needed.
 ex: `arr[3]` returns 40 from the above array. 
 Length of an array can be found as follows `arr.length`
 
-#### foreach or enhanced for loop ####
+#### foreach or enhanced for loop
 This a special type of for loop syntax where items can be accessed without using the index.
 Ex.
 ```
@@ -256,16 +256,16 @@ Ternary Operator: `a ? b : c` If `a` is true then take `b` as the value otherwis
 This operator checks if an object is of a particular type (class type or interface type).
 
 #### OOPS Concepts
-** Features of OOPS **
+#### Features of OOPS
 	* Inheritance
 	* Polymorphism
 	* Encapsulation
 	* Abstraction
-** Class **
+#### Class
 A class is a template or blueprint that describes the behaviors and states of a particular entity. This class can be used to create objects from it and it can be said that objects are instances of aclass. 
 A class can contain both data (variables)  and methods (code) that acts on that data. Variables inside a class are callled instance variables. The code that acts on these variables are called as methods. If a class is considered a ice cube tray then ice cubes are objects.
 
-** Rules of Java Class **
+#### Rules of Java Class
 	* It can only have public or default(no modifier) access specifier.
 	* It can either be abstract, final, and concrete (normal class).
 	* It must have a class keyword followed by a legal identifier.
@@ -289,11 +289,11 @@ Ex.
 `Student std = new Student();`
 Here `std` is an instance/object of the Student class. The `new` keyword creates an actual copy of the object and assigns it to variable `std`. This will be stored in the heap area of the memory. `new` operator dynamically assigns memory for an object.
 
-** Initializing a Class ** 
+#### Initializing a Class
 A class can be initiated when an instance of a class is created using a `new` operator.
 A class is also initiated when a static method of a class is invoked or a static field of a class is assigned.
 
-** Copying an entire Java object with its state **
+#### Copying an entire Java object with its state
 `.clone()` method can be used to clone an entire object.
 
 #### Methods in Java
@@ -329,7 +329,7 @@ and
 
 Two ways to pass arguments to a method.
  `call-by-value` and `call-by-reference`
-** call-by-value** 
+#### call-by-value
 In this method a copy of an argument is passed into a method and changes made to this argument value inside the method will have no effect on the argument.
 Ex.
 ```
@@ -348,5 +348,5 @@ public class Test
   }
 }
 ```
-**Method Overloading**
+####Method Overloading
 
