@@ -311,6 +311,15 @@ public String getName(String st)
 Here,
 ` public` is the modifier, `String` is the return datatype, `getName` is the method name, and `String st` is the parameter that's passed in when the method is called.
 
+##### modifier:
+Modifier is access type of method.
+
+##### Return datatype:
+This is the data type of return value.
+
+##### Method Name:
+Name of the method that can be used to call the method (function).
+
 Difference between parameter and argumet:  Parameter is something that is passed into method when defining a method and argument is something that is passed into a function when it is called.
 Ex.
 ```
