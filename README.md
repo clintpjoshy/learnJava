@@ -360,11 +360,81 @@ public class Test
 
 #### Call-by-reference
 In this call a copy of the argument is passed to a method and any changes made to this value inside the method changes the value of the argument.
-# There's no call by reference in Java.
+### There's no call by reference in Java.
 
 #### Method Overloading
 This occurs when 2 or more methods have same name but different parameters in a class. This will happen only when same names are used in same class.
 
 	* One of the ways java supports polymorphism is method overloading.
 	* Method overloading can be done by changing the number of arguments or by changing the data type of arguments.
-	* Method overloading does **not** happen when there are same names and parameter but different **return** **type**
+	* Method overloading does not happen when there are same names and parameter but different return type.
+
+##### Over Loaded methods can have different access modifiers.
+
+#### Different ways to implement method overloading
+1. Method overloading by changing the data type of arguments
+	```
+          class Calculate {
+              void sum (int a, int b) {
+                  System.out.println("Sum is " + (a + b));
+              }
+
+              void sum (float a, float b) {
+                  System.out.println("Sum is " + (a + b));
+              }
+
+              Public static void main (String[] args) {
+                  Calculate cal = new Calculate();
+                  cal.sum (8, 5); //First sum method with int data type is called.
+                  cal.sum (4.6f, 3.5f); // Second sum method with float data type is called.
+              }
+          }
+
+          // This would output Sum is 13 and Sum is 8.1
+	``` 
+
+2. Method overloading by changing the number of arguments
+
+	```
+          class Area {
+              void find(int l, int b) {
+                  System.out.println("Area is " + (l + b));
+              }
+
+              void find(int l, int b, int h) {
+                  System.out.println("Area is " + (l + b + h));
+              }
+
+              Public static void main (String[] args) {
+                Area ar = new Area();
+                ar.find(8, 5); // First find with 2 parameters
+                ar.find(4, 6, 2); // Second find with 3 parameters.
+              }
+
+              // This would output Area is 40 and Area is 48.
+          }
+	```
+
+When java looks for a particular method using it's parameter type and couldn't find an exact match, it'll try finding the method using converting the data type of parameters (type casting). This is shown in the below example.
+
+	```
+          class Area {
+            void find (long l, long d) {
+              System.out.println("Area is " + (l * d));
+            }
+
+            void find (int l, int d, int h) {
+              System.out.println("Area is " + (l * d * h));
+            }
+
+            public static void main (String[] args) {
+                Area ar = new Area();
+                ar.find(8 * 5);
+                ar.find(2, 4, 5):
+
+            // This will output based on the following algorithm: check for find method with 2 parameters which are long. If that couldn't be found then convert find (int int ) to find (long long). i.e. ar.find (8, 5) is of type find (int int). This will be converted to find (long long) using typecasting.
+            }
+          }
+	```
+
+#### Constructors in Java
