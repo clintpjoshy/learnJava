@@ -439,3 +439,89 @@ When java looks for a particular method using it's parameter type and couldn't f
 	```
 
 #### Constructors in Java
+Constructor is a special method that is used to initialize an object. Every class has a constructor. When creating a class if a constructor is not defined, java compiler creates one for us by default. There is not need for a return type on constructor method. A constructor should have same name as the class. The modifier type for a constructor cannot be abstract, static, final or syncronized.
+
+Ex for a class:
+
+```
+class Car() {
+  String name;
+  String model;
+
+  Car() {
+    name = "";
+    model = ""'
+  }
+}
+```
+
+2 types of Constructors
+	* Default
+	* Parameterized
+When a new object is created at least one constructor will be invoked.
+```
+Car c = new Car() // Default
+Car c = new Car(name); // Parameterized
+```
+
+#### Constructor Overloading
+Same as methods, constructors can be overloaded as well. Overloaded constructors are differentiated based on the type of parameters or number of parameters. This is same as method overloading except that a constructor wouldn't return any type in java.
+
+The reason for constructor overloading is to create object in different ways.
+
+Ex:
+```
+class Cricketer {
+  String name;
+  String team;
+  int age;
+
+  Cricketer() { // default constructor
+    name = "";
+    team = "";
+    age = 0;
+  }
+
+  Cricketer(String n, String t, int a) { // constructor overload.
+    name = n;
+    team = t;
+    age = a;
+  }
+
+  Cricketer(Cricketer ckt) { // This is same as constructor copy in c++
+    name = ckt.name;
+    team = ckt.team;
+    age = ckt. age;
+  }
+
+  public String toString() {
+   return "this is " + name + " of " + team;
+  }
+
+  class test {
+    Cricketer c1 = new Cricketer();
+    Cricketer c2 = new Cricketer("Sachin", "India", 32);
+    Cricketer c3 new Cricketer(c2);
+
+    System.out.println(c2);
+    System.out.println(c3);
+
+    c1.name = "Virat";
+    c1.team = "India";
+    c1.age = 32;
+
+    System.out.println(c1);
+  }
+}
+```
+
+Difference between constructors and methods are as follows: 
+Constructors should have same name as the class. They also do not return a value. They are also called only once when a object is instatiated.
+Methods on the other hand can be called multiple times and it can return a value or just be a void method.
+
+Constructor Chaining in Java:
+Calling a constructor to a different constructor in the same class. 
+
+Constructor return the current instance of a class. It'll not have any return type.
+
+#### this keyword
