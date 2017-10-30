@@ -166,13 +166,10 @@ Length of an array can be found as follows `arr.length`
 This a special type of for loop syntax where items can be accessed without using the index.
 Ex.
 ```
-class Test
-{
-public static void main(String[] args)
-  {
+class Test{
+  public static void main(String[] args) {
     int[] arr = {10, 20, 30};
-    for (int x : arr) 
-    {
+    for (int x : arr) {
       System.out.println(x);
     }
   }
@@ -182,15 +179,18 @@ Output for above code is `10 20 30`.
 
 #### Multi - Dimensional Array(md)
 These types of arrays can have multiple rows and columns.
+
 #### Array Declaration (md)
 `datatype[][] identifier;`
 or
 `datatype identifier[][];`
+
 #### Initialization of Array (md)
 `new` operator is used to initialize these arrays
 `int[][] arr = new int[10][10];` // 10 by 10 array
 or
 `int[][] arr = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15}};` // 3 by 5 array 
+
 #### Accessing array element (md)
 `arr[i][j]` // Access element at row i and column j
 Ex.
@@ -309,8 +309,7 @@ public String getName(String st)
   return name;
 }
 ```
-Here,
-` public` is the modifier, `String` is the return datatype, `getName` is the method name, and `String st` is the parameter that's passed in when the method is called.
+Here, ` public` is the modifier, `String` is the return datatype, `getName` is the method name, and `String st` is the parameter that's passed in when the method is called.
 
 ##### Modifier:
 Modifier is access type of method.
@@ -332,6 +331,7 @@ public static void main(String[] args)
   Test b = new Test();
   b.sum (10, 20);
 };
+
 ```
 `sum(int x, int y);` //This is a parameter
 and 
@@ -339,6 +339,7 @@ and
 
 Two ways to pass arguments to a method.
  `call-by-value` and `call-by-reference`
+
 #### call-by-value
 In this method a copy of an argument is passed into a method and changes made to this argument value inside the method will have no effect on the argument.
 Ex.
@@ -525,3 +526,90 @@ Calling a constructor to a different constructor in the same class.
 Constructor return the current instance of a class. It'll not have any return type.
 
 #### this keyword
+`this` is used with four different ways in java.
+* It refers the current object.
+* It refers to the object on which the method was invoked.
+* Can be used to invoke current class constructor.
+* can be passed as an argument to another method.
+
+Ex.
+```
+class Box {
+  Double width, height, depth;
+  Box (double w, double h, double d) {
+    this.width = w;
+    this.height = h;
+    this.depth = d;
+  }
+}
+```
+Here `this` is used to initialize a variable (member) of current object. Here it refers to the current object that invoked the constructor.
+
+*Overload a constructor*
+```
+class Car {
+  private String name;
+  public Car () {
+    this('BMW');  //overloading the constructor
+  }
+  public Car (String n) {
+    this.name = n; //Member of the class is initialized. (same a above)
+  }
+}
+```
+
+*Call methods of a class*
+```
+public void getName () {
+  System.out.println('study');
+}
+
+public void display () {
+  this.getName();
+  System.out.println();
+}
+```
+
+*Return current object*
+```
+public Car getCar () {
+  return this;
+}
+```
+
+#### Garbage Collection
+In java, if an object is not references anymore, memory assosiated with that object can be retrieved and this is done automatically by JVM. This technique is gabace collection.
+Languages like C++ and C, these objects that are not referenced needs to be explicitly garbage collected to prevent `Memory Leaks`.
+
+There no explicit garbage collection in java. JVM can be requested to garbage collect using `System.gc()` method. There is no gaurentee that this method will garbage collect.
+
+*finalize()*
+This method is used to run any specific tasks like closing a connection etc to be done when an object is destroyed. This method is called by the garbage collection thread before an object is garbage collected. This will be the last chance to clean up tasks.
+
+Ex.
+```
+protected void finalize() {
+  //finalize tasks
+}
+```
+This method is available for all classes. It also used `protected` modifier.
+
+*gc()*
+This is the method that is used to garbage collect explicitly like discussed before. But this method does not gaurantee garbage collection. This method only can request JBM for garbage collection.
+
+Ex.
+```
+public class Test {
+  public static void main(String[], args) {
+    Test t = new Test();
+    t = null;
+    System.gc();
+  }
+
+  public void finalize() {
+    System.out.println("Garbage Collected");
+  }
+}
+```
+
+#### Modifiers
