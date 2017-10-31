@@ -21,6 +21,7 @@ Java is compiled and interpreted language. During compilation `.java` is convert
 
 JVM architecture
 [JVM Architecture](http://www.studytonight.com/java/component-of-java)
+(Check in the image folder for JVM Architecture representation).
 
 To compile a file run javac `fileName`. filename includes the file extension <br />
 
@@ -231,12 +232,12 @@ Bitwise operators can be applied to integer types like long, int, short, char, a
 #### Bitwise
 `&, |, ^, <<, >>`
 ```
-a	b	a&b	a|b	a^b
+a   |   b   |   a&b   |   a|b   |   a^b
 
-0	0	0	0	0
-0	1	0	1	1
-1	0	0	1	1
-1	1	1	1	0
+0       0       0       0       0
+0       1       0       1       1
+1       0       0       1       1
+1       1       1       1       0
 ```
 Bitwise shift operators is used to shift bit values of a value. Left operand (a) specifies the value to be shifted and right operand (b)
 Ex.
@@ -613,3 +614,16 @@ public class Test {
 ```
 
 #### Modifiers
+Modifiers are certain keywords that are used to change what a variable, class, constructor etc name means. Thery are 2 categories of modifiers.
+	* Access Control Modifier
+	* Non Access Modifier
+
+#### Access Control Modifiers
+There are 4 access control modifers that are used for classes, variables, and constructors.
+	* Default: Elements with default in their name has scope only in the same package.
+	* Public: Public keyword in variable etc name will make it visible everywhere.
+	* Protected: These elements will be available in the package and any subclasses.
+	* Private: These elements have scope only within classes that the elements are defined.
+
+Like the name defines, these keywords will control where a variable can be accessed and available.
+(Check in image folder for image representing the access modifiers).
