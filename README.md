@@ -628,3 +628,189 @@ There are 4 access control modifers that are used for classes, variables, and co
 
 Like the name defines, these keywords will control where a variable can be accessed and available.
 (Check in image folder for image representing the access modifiers).
+
+#### Non-Access Modifiers
+These modifiers, do not affect the accessibility of the variables and methods. They provide special properties to the variables and methods. There are 5 different types non access modifiers like:
+	* Final
+	* Static
+	* Transient
+	* Synchronized
+	* Volatile
+
+**Final**
+A variable, or such entities with a `final` modifier it's contents are prevented from being modified. This can be used when declaring a variable, method, or a class.
+
+*Final Variable*
+Here a variable behaves like a constant because it's value cannot be changed.
+`final int a = 5;`
+
+*Final Method*
+The method cannot be overridden in the future.
+
+```
+class StudyTonight {
+  final void learn() {
+    System.out.println("learning");
+  }
+}
+
+class Student extends StudyTonight {
+  void learn() {
+    System.out.println("learning something new");
+  }
+
+  public static void main(String args[]) {
+    Student object = new Student();
+    object.learn();
+  }
+}
+```
+The above code will error because `StudyTonight` is declared with a `final` modifier. Like above, a method can be inherited but it cannot be overriden.
+
+*Final Class*
+A class with final modifier cannot be inherited unlike a method.
+
+**Static**
+Static Modifiers can be used to create class methods and class variables that can be accessed without an instance of a class.
+
+*Static Variable*
+A static variable that is declared in a class can be accessed without instantiating an object of that class.
+A static variable is stored at only one location. This means that every instance of object created from a single class will always have the same static variable that is declared in the class. This also means that static variables are initialized only once.
+A common property that has to be a part of all the object instances can be declared using static modifier. This saves memory. As an example, when creating a class that declares the properties of all the employees, employee name, id etc are unique but company name is same for all of them and therefore static modifier can be used.
+
+Ex.
+```
+class Employee {
+  int e_id;
+  String name;
+  static String company_name = 'MyComapany';
+}
+```
+
+```
+class St_Employee {
+  int eid;
+  String name;
+  static String company_name = "MyCompany";
+
+  public void show() {
+    System.out.println(eid + " " + name + " " + company_name);
+  }
+
+  public static void main(String[] args) {
+    St_Employee se1 = new St_Employee();
+    se1.eid = 111;
+    se1.name = "Clint";
+    se1.show();
+
+    St_Employee se2 = new St_Employee();
+    se2.eid = 123;
+    se2.name = "Clint1";
+    se2.show();
+  } 
+}
+```
+
+**Static Variable VS Instance Variable**
+```
+Static variable                    | Instance variable
+---------------                      ------------------
+Represent common property          | Represent unique property
+Accessed using class name          | Accessed using object
+Get memory only once               | get new memory each time a new object is created
+```
+
+Ex.
+```
+public class Test {
+  static int x = 100;
+  int y = 100;
+
+  public void increment () {
+    x++;
+    y++;
+  }
+
+  public static void main(String[] args) {
+    Test t1 = new Test();
+    Test t2 = new Test();
+    t1.increment();
+    t2.increment();
+    System.out.println(t2.y); //101
+    System.out.println(Test.x); // Here a static variable can be accessed even without instantiating an object. Directly from the class itself. 102
+  }
+}
+```
+From the second println it can be seen that the value is updated as well. Thus even though we are accessing the variable x, it's value is updated because of the instantiation that happened at t1 and t2.
+
+**Static Method**
+A method can be declared as static as well. This method can be accessed without instantiating it's class. One of the examples of such a method that is commonly used is `main()` method. This method is declared as static because it's called before any object is created from a class.
+
+```
+class Test {
+  public static void square(int x) {
+    System.out.println(x*x);
+  }
+
+  public static void main(String[] args) {
+    square(8); //static method square () is called without any instance of the class Test
+  }
+}
+```
+
+**Static Block**
+Static block, can be used to initialize a data set as shown in the example below. Static blocks are executed before `main()` method.
+
+```
+class St_Employee {
+  int eid;
+  Sting name;
+  static String company_name;
+
+  static {
+    company_name = "MyCompany"; //Static block invoked before main() method
+  }
+
+  public static void main(String [] args) {
+    St_Employee se1 = new St_Employee();
+    se1.eid = 111;
+    se1.name = 'name';
+    se1.show();
+  }
+}
+```
+
+Non Static variables cannot be referenced from a static context.
+This happens because non static variables are available only after an object is instantiated by a `new` operator. But static variable are available even before a class is instantiated. Therefore non static variables cannot be accessed inside a static context. In static context, non static context variables or entities are not yet available.
+
+```
+class Test {
+  int x;
+   public static void main(String[] args) {
+    x = 10;
+   }
+}
+```
+This code will output a compile error `non-static variable cannot be referenced from a static context`
+
+Accessing a non static variable inside a static method:
+```
+class Test {
+  int x;
+
+  public static void main(String[] args) {
+    Test tt = new Test();
+    tt.x = 10; // This will work because the class is instantiated and therefore non static variables are available.
+  }
+}
+```
+`main()` method is static and therefore can be called without any instances of classes.
+
+**Transient Modifier**
+When this modifier is applied to a field in java, that field with this attribute will be excluded when the object is being serialized. When the object is deserialized, the field will be initialized with its default value (null value for a reference type or zero / false if the object is a primitive type).
+
+**Synchronized Modifier**
+A synchronized method can be accessed by only one thread at a time. This method will prevent thread interference and memory consistency error as follows: if an object is visible to more than one thread, all reads or writes to that object done through synchronized methods.
+
+**Volatile Modifier**
+Volatile modifier can be changed unexpectedly by other parts of your program. This volatile variables can be used for multi threading program. This can be used only on a variable and not on a class or method.
