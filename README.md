@@ -233,11 +233,11 @@ Bitwise operators can be applied to integer types like long, int, short, char, a
 `&, |, ^, <<, >>`
 ```
 a   |   b   |   a&b   |   a|b   |   a^b
-
-0       0       0       0       0
-0       1       0       1       1
-1       0       0       1       1
-1       1       1       1       0
+--- | ----- | ------- | ------- | -----
+0   |   0   |   0     |    0    |   0
+0   |   1   |   0     |    1    |   1
+1   |   0   |   0     |    1    |   1
+1   |   1   |   1     |    1    |   0
 ```
 Bitwise shift operators is used to shift bit values of a value. Left operand (a) specifies the value to be shifted and right operand (b)
 Ex.
