@@ -15,9 +15,9 @@ This is based of http://www.studytonight.com/java/overview-of-java.
 
 #### JVM
 Java virtual machine that provides runtime environment to execute java byte code. Java files (\*.java) into (\*.class) files which are bytecodes that are understood by JVM. 
-A Java program is excution is controlled by JVM.
+A Java program's execution is controlled by JVM.
 
-Java is compiled and interpreted language. During compilation `.java` is converted into `.javac` which is byte code. This byte code cannot be executed on hardware like a complied C code. This byte code needs to be interpreted by JVM during run time to be executed. There java can be called a comile once run anywhere. This makes java platform independent. One one the main disadvantages of compilted languages like C is that the binary code is not platform independent (learn more about this).  
+Java is compiled and interpreted language. During compilation `.java` is converted into `.javac` which is byte code. This byte code cannot be executed on hardware like a complied C code. This byte code needs to be interpreted by JVM during run time to be executed. There java can be called a 'compile once run anywhere'. This makes java platform independent. One one the main disadvantages of compiled languages like C is that the binary code is not platform independent (learn more about this).  
 
 JVM architecture
 [JVM Architecture](http://www.studytonight.com/java/component-of-java)
@@ -814,3 +814,172 @@ A synchronized method can be accessed by only one thread at a time. This method 
 
 **Volatile Modifier**
 Volatile modifier can be changed unexpectedly by other parts of your program. This volatile variables can be used for multi threading program. This can be used only on a variable and not on a class or method.
+
+#### Inheritance (IS-A)
+Inheritance is a feature where a class can inherit properties and methods of another class. When a class extends another it inherits all the non private properties and methods. Inheritance happens from parent (**super class**) to child (**sub class**).
+
+Inheritance in java defines a **is\-a** relationship between Super and sub classes ie. a sub class is a child of a super class.
+
+**extends** and **implements** are 2 main keywords used for inheritance in java.
+
+**implements** is something that is used to create a **interface** from a class and will be discussed in the interface section later.
+
+Using **extends**:
+Ex.
+
+```
+class Vehicle {
+ //code
+} 
+
+class Car extends Vehicle {
+  //code
+  //this class will also have properties (non private) from Vehicle class
+}
+```
+In this case **Vehicle** is a **Super Class** of **Car** and **Car** is a **Sub Class** of **Vehicle**.
+Also Car **IS\-A** Vehicle.
+
+Inheritance has many advantages:
+	* Code reusability. Methods and properties that can be common among many children class and can be reused.
+	* It also helps is creating polymorphism by allowing method overriding.
+
+Inheritance also has many disadvantages:
+	* Parent and Child are tightly coupled.
+	* That means that any changes to parent class will result in changes in child classes and therefore they cannot be independent to each other.
+
+Ex:
+```
+class Parent {
+  public void p1() {
+    System.out.println("parent method");
+  }
+}
+
+public class Child extends Parent {
+  public void c1() {
+    System.out.println("Child method");
+  }
+  public static void main(String[] args) {
+    Child cobj = new Child();
+    cobj.c1(); //method of Child class
+    cobj.p1(); //method of Parent class
+  }
+}
+```
+
+Another example:
+```
+class Vehicle {
+  String vehicleType;
+}
+public class Car extends Vehicle {
+  String modelType;
+
+  public void showDetails() {
+    vehicleType = "Car"; //this type is defined in parent class
+    modelType = "Sports";
+    System.out.println(modelType + " " + vehicleType);
+  }
+
+  public static void main(String[] args) {
+    Car car = new Car();
+    car.showDetatils();
+  }
+}
+```
+
+#### Types of Inheritance
+1. Single Inheritance
+2. Multilevel Inheritance (Not supported in java)
+3. Heirarchial Inheritance
+
+**Single Inheritance**
+`Class A ------> Class B`
+
+**Multilevel Inheritance**
+`Class A ------> Class B ------> Class C`
+This is not suported in java. I think javascript supports this (confirm this).
+
+**Heirarchial Inheritance**
+```
+          Class A
+           /\
+          /  \
+         /    \ 
+        /      \
+    Class B  Class C
+
+```
+
+Multilevel Inheritance can result in ambiguity and therefore can cause confusion to developers.
+
+####Super Keyword
+This keyword is used to represent the immediate parent class of a class. So a sub class uses super to represent it's immediate parent (super class).
+
+```
+class Parent {
+  String name;<---------------------
+}                                  |
+                                   |
+class Child Extends Parent {       |
+  String name;<-----------------   |
+                               |   |
+  void detail() {              |   |
+    super.name = "Parent";-----|----
+    name = "Child";-------------
+  }
+}
+```
+
+Ex: Child class refering to a parents property using super
+```
+class Parent {
+  String name;
+}
+
+public class Child extends Parent {
+  String name;
+  public void details() {
+    super.name = "parent"; // Refers to parent
+    name = "child"; // Refers to child
+    System.out.println(super.name + " " + name);
+  }
+  public static void main(String[] args) {
+    Child cobj = new Child();
+    cobj.details();
+  }
+}
+```
+Output will be:
+`Parent and Child`
+
+Ex: Child class refering to parent method using super
+```
+class Parent {
+  String name;
+  public void details() {
+    name = "parent";
+    System.out.println(name);
+  }
+}
+
+public class Child extends Parent {
+  String name;
+  public void details() {
+    super.details(); //Calling the method from parent
+    name = "child"; // Refers to child
+    System.out.println(name);
+  }
+  public static void main(String[] args) {
+    Child cobj = new Child();
+    cobj.details();
+  }
+}
+```
+Output will be:
+```
+parent
+child
+```
+Ex: Child class calling parent class constructor using super

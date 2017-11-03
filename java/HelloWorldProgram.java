@@ -1,5 +1,11 @@
 public class HelloWorldProgram {
-  public static void main(String []args) {
-    System.out.println("Hello World");
+
+  public void getName() {
+    System.out.println("Clint");
+  } 
+
+  public static void main(String[] args) {
+    HelloWorldProgram hello = new HelloWorldProgram();
+    hello.getName();
   }
 }
