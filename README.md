@@ -983,3 +983,238 @@ parent
 child
 ```
 Ex: Child class calling parent class constructor using super
+```
+#### Aggregation (HAS-A)
+HAS-A relationship is based on usage and not based on inheritance. Class A has-a relationship with class B, if code in class A has a reference to an instance in class B.
+
+Ex.
+```
+class Student {
+  String name;
+  Address ad;
+}
+```
+
+Here Student has-a **Address**.
+
+```
+Student
+name
+Address ----------------> Address
+                          city
+                          zip
+```
+What it means is that student class has an instance of variable type Address. Student class can use Address behaviour without repeating the code.
+
+Aggregation helps in designing good object oriented design and code reusability.
+
+```
+class Author {
+  String authorNmae;
+  int age;
+  String place;
+  Author(String name, int age, String place) {
+    this.authorNmae = name;
+    this.age = age;
+    this.place = place;
+  }
+
+  public String getAuthorName() {
+    return authorName;
+  }
+
+  public int getAge(){
+    return age;
+  }
+
+  public String getPlace() {
+    return place;
+  }
+}
+
+class Book {
+  String name;
+  int price;
+  Author auth;
+  Book(String n, int p, Author at) {
+    this.name = n;
+    this.price = p;
+    this.auth = at;
+  }
+
+  public void showDetail() {
+    System.out.println("Book is " + name);
+    System.out.println("price is " + price);
+    System.out.println("Author is " + auth.getAuthorNmae());
+  }
+}
+
+class Test {
+  public static void main(String[] args) {
+    Author ath = new Author("Me", 22, "India");
+    Book b = new Book("Java", 559, ath);
+    b.showDetails();
+  }
+}
+```
+
+Output
+```
+Book is Jave.
+price is 550.
+Author is me.
+```
+It can be seen from above code, how Author defined in Author class is available in class Book.
+
+#### Composition
+Composition is restricted Aggregation. When one class that owns another class is destroyed the other class cannot exist meaningfully. This is known as composition.
+
+Ex;
+```
+class Car {
+  private Engine engine;
+  Car(Engine en) {
+    engine = en;
+  }
+}
+```
+Here class Car cannot exist without class Engine.
+
+When to use Inheritance and Aggregation in Java?
+When a property needs to be used without modifying it in different class then **Aggregation** maybe used. When a property needs to be modified in a different class in order to modify certain property or method then **Inheritance** is a better option.
+
+#### Method Overriding
+This is also called as **runtime polymorphism**. When a sub class has same name, same number of arguments and same type of signature as method in its super class, then the method is known as **Overriden Method**. Benefit of Method overriding is that a method can be modified to match the properties of that sub class.
+
+Method Overloading is the way where java uses it's intelligence to detemine which method to be used based on number of argumets and data type etc. Method Overriding means replacing the method to match the requirements of a specific class.
+
+Ex:
+```
+class Animal {
+  public void eat() {
+    System.out.println("Generic Animal eating");
+  }
+}
+
+class Dog extends Animal {
+  public void eat() { //eat() method overriden by Dog class.
+    System.out.println("Dog eat meat");
+  }
+}
+```
+
+Even though eat method is in the super class of Dog, it's overriden by eat method in Dog class. Method must have same name and same type signature to be overridden otherwise it's overloading.
+
+**Note:** Static methods cannot be overridden because, a static method is bounded by a class but a instance method is bounded with an object.
+
+#### Covariant Return Type
+A method can be overriden by changing its return type. If a subclass overrides a method by changing the return type of super class method, then the return type of the overridden method must be a subtype of return type declared in the original super class. 
+
+```
+class Animal {
+  Animal myType() {
+    return new Animal();
+  }
+} 
+
+class Dog extends Animal {
+  Dog myType() { //override
+    return new Dog();
+  }
+}
+```
+
+#### Difference between Overloading and Overriding
+
+```
+Method Overloading               |             Method Overriding
+------------------                             -----------------
+Parameter must be different but  |  Both name and parameters must be same
+not the name.
+
+Compile time polymorphism        |  Runtime Polymorphism
+
+Increase readability of code     |  Increase reusability of code
+
+Access specifier can be changed  |  Access specifier cannot be more restrictive
+                                    than original method (can be less restrictive)
+```
+**Note:**
+We cannot override a static method because static methods are bound to a class and overriding is associated to the object (instance of class) and this happens at runtime.
+
+
+#### Runtime Polymorphism or Dynamic method dispatch
+
+This is a process where a overriden method is resolved at runtime. When a overriden methed is called by a reference, java determines which method (with same name) needs to be executed base on the type of the object it refers to. Therefore type of method detemines the method to be called.
+
+```
+#### Upcasting and Downcasting
+(later)
+
+**Difference between Static binding and Dynamic binding**
+Static binding occurs during compile time and dynamic binding happens during runtime. Static binding uses class and dynamic binding uses instance of class (object). Overloaded methods use Static binding while overriden methods use dynamic binding.
+
+#### Instanceof Operator
+`instanceof` operator can be used to check the type of a object at runtime. This operator is also important for casting of an object at runtime.
+
+```
+public class Test {
+  public static void main(String[] args) {
+    Test t = new Test();
+    System.out.println(t instanceof Test); //true
+  }
+}
+```
+#### Command line arguments in java
+This section explains how command line can be used to run java programs and how arguments can be passed to functions from command line.
+
+Arguments passed in command-line are stored as string in **String** array passed to the args parameter passed to `main()` method.
+
+```
+class cmd {
+  public static void main(String[] args) {
+    for (int i = 0; i < args.length; i++) {
+      System.out.println(args[i]);
+    }
+  }
+}
+```
+The above code can be executed in cmd as follows:
+`java cmd 10 20 30`
+
+#### Java Package
+Packages are important in java because they can avoid name conflicts and to control access of class, interfacr, and enumeration etc. In a package similar types of classes, interface, enumeration, or sub-package are grouped together.
+
+Types of packages.
+**Built-in:** packages provides by java such as `java.lang`, `java.util` etc.
+**User-defined** Packages created by grouping similar classes, interfaces etc.
+
+**Creating a package**
+If a package needs to be created it can be done simply by adding `package myPackageName` in the first line of the code.
+
+Ex:
+```
+package myPackage;
+
+public class employee {
+  //code
+}
+```
+
+Any files that are created under this package are stored under `myPackage` folder / directory.
+Some important points about packages
+* Package is defined as seperate folder and has the same name as the package.
+* Stores all the classes beonging to this package under this folder
+* Any classes that needs to be accessed outside of this package should be declared as public accessor
+* All the classes within the package must have package statement as the first line
+* All the classes in a package must be compiled before use to be error free.
+
+**Compiling Programs in Java Packages**
+If compiling from a terminal then following statements needs to be run when compiling programs in packages.
+`javac -d directoryName fileName`
+Ex:
+`javac -d . FirstProgramName.jave`
+In the above case directoryName isn't given instead just a `.`. This is done when we want the compiled  class file needs to be saved to the same directory. If it needs to be save in another directory then path to that directory needs to be given.
+`-d` flag specifies the destination.
+
+**How to run Java package program**
