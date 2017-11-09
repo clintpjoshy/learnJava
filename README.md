@@ -1213,8 +1213,353 @@ Some important points about packages
 If compiling from a terminal then following statements needs to be run when compiling programs in packages.
 `javac -d directoryName fileName`
 Ex:
-`javac -d . FirstProgramName.jave`
+`javac -d . FirstProgramName.java`
 In the above case directoryName isn't given instead just a `.`. This is done when we want the compiled  class file needs to be saved to the same directory. If it needs to be save in another directory then path to that directory needs to be given.
 `-d` flag specifies the destination.
 
 **How to run Java package program**
+A file in the package can be compiled as above. In order to run this compiled class file package name needs to be added as well.
+Ex.
+`java myPackage.FirstProagram`
+
+**Import Keyword**
+Packages, both user defined and native can be imported to other pakages using `import` keyword.
+
+There are three ways to access class belonging to different packages to current class.
+1. Using fully qualified name (Not a good practice)
+Ex.
+Consider 2 packages pack and myPack.
+```
+package pack;
+public class A {
+  public void msg() {
+    System.out.println("Hello");
+  }
+}
+```
+And myPack
+```
+package myPack;
+class B {
+  public static void main(String args[]) {
+    pack A obj = new pack.A(); // Using fully qualified name
+    obj.msg();
+  }
+}
+```
+If we want only one particular class of a package then it can be accessed as shown above. In this way other classes with same name in the current package will not be accessed. In this method there's no need for `import` statement. This method is not recommended and can be used when 2 packages have classes with same name. Ex `java.util` and `java.sql` packages contain `Date` class.
+
+2. Import class or class that are only needed.
+We can do something like `packageName.className` to get the class `className` from `packageName` in our current class.
+Ex.
+```
+package pack;
+public class A {
+  public void msg() {
+    System.out.println("Hello");
+  }
+}
+```
+
+ And
+
+```
+package myPack;
+import pack.A;
+class B {
+  public static void main(Stirng args[]) {
+    A.obj = new A();
+    obj.msg(); //Hello
+  }
+}
+
+3. Import all the classes from a package.
+If a whole package with it's classes and interfaces needs to be imported that can be done as follows.
+
+```
+package learnjava;
+public class First {
+  public void msg() {
+    System.out.println("Hello");
+  }
+}
+```
+And
+```
+package studyJava;
+import learnJava.*;
+class Second {
+  public static void main(String args[]) {
+    First obj = new First();
+    obj.msg(); // Hello
+  }
+}
+```
+
+Important points to remember about packages:
+1. If package is not specified, it classes are added to default package which is the current working directory and it doesn't need a name.
+2. Package statement should be written in the beginnig of the line.
+
+//wrong way
+```
+import package p1.*;
+package p3;
+```
+
+//Correct way
+```
+package p3;
+import package p1.*;
+```
+
+#### Sub Package and Static Import in Java
+A package inside of a package is called subpackage.
+
+Using Java as an example, java itself is a package that contains many classes like System, string, Reader, Writer etc depending on it's use cases. Each class can be grouped into further subpackages like net, io etc. So Input/ Output classes can be found in io and server / serverSocket related classes can be found in net package.
+
+Ex:
+```
+package LearnJava.Package.SubPackage;
+class Simple {
+  public static void main(String args[]) {
+    System.out.println("Hello subpackage"); // Hello subpackage
+  }
+}
+```
+
+This can be compiled as `javac -d . Simple.java`.
+This can be run as `java LearnJava.Package.SubPackage.Simple`
+
+**Static Import**
+Static members of a class can be imported using **static import**. If we want to access a static member outside of a class without using class name then static import is used. 
+
+There are 2 ways to import a static member.
+1. Import a particular static member from a class
+Ex. `import static package.className.staticMemberName;`
+    `import static java.lang.Math.sqrt;` 
+
+2. Import all the static members of a class
+Ex. `import static package.classTypeName.*;`
+    `import static java.lang.Math.*;` //Import all the static classes.
+
+Ex. using static and not using static import
+
+```
+// Without static
+public class Test {
+  public static void main(String[] args) {
+    System.out.println(Math.sqrt(144)); //12
+  }
+}
+```
+
+```
+//With static
+public class Test {
+  public static void main(String[] args) {
+    System.out.println(sqrt(144)); //12
+  }
+}
+```
+
+**Abstraction** in computer science can be understood as preserving information that are relevent in a given context and forgetting all the other ones that are not relevent in a specific context.
+
+#### Abstract Class
+If a class contain any abstract method then the class is declared as an abstract class.
+An abstract class is never instantiated. This class will not provide complete abstraction because it can also have concrete methods.
+
+Ex.
+`abstract class className{}`
+
+**Abstract Method**
+Method that are declared without any body in an abstract class is called abstract method. Subclasses will be responsible to define an abstract methods body. Abstract method cannot have final and static modifiers. If a class extends an abstract class then all the abstract methods needs to be implemented by the extended class
+
+Ex. `abstract returnType functionName();` // No body
+
+Ex. Abstract class
+```
+abstract class A {
+  abstract void callMe();
+}
+
+class B extends A {
+  void callme() {
+    System.out.println("this is callme");
+  }
+
+  public static void main(String[] args) {
+    B b = new B();
+    b.callme(); //  this is callme
+  }
+}
+```
+
+**Abstract class with concrete(normal) method.
+Like discussed above an abstract class can also have concrete (normal) methods as well along with abstract methods.
+
+```
+abstract class A {
+  abstract void callme();
+
+  public void normal() {
+    System.out.println("this is a concrete method");
+  }
+}
+
+class B extend A {
+  void callme() {
+    System.out.println("this is callme.");
+  }
+
+  public static void main(String args[]) {
+    B.b = new B();
+    b.callme(); //this is callme.
+    b.normal(); //this is concrete method
+  }
+}
+```
+
+**Points to Remember**
+1. Abstract classes are not the same as interfaces.
+2. An abstract class do not need to have an abstract method. But if any method is declared as abstract in a class then that class needs to be declared as abstract.
+3. Abstract classes can have Constructors, Member variables, and Normal methods
+4. Abstract classes are never instantiated.
+5. When a abstract class is extended, any abstract method in that class needs to be defined in the child class.
+
+**Abstraction using abstract class**
+Abstraction means to hide complexity. Like discussed its a way to use what is needed for at a certain context. Following is an example of how abstract classes can be used for abstraction.
+
+```
+abstract class Vehicle {
+  public abstract void engine();
+}
+public class Car extends Vehicle {
+  public void engine() {
+    System.out.println("Car Engine"); //abstract method implementation
+  }
+
+  public static void main(String[] args) {
+    Vehicle v = new Car();
+    v.engine();
+  }
+}
+```
+In this case we are hiding the complexity of Car under Vehicle. See that in main method we are instantiating an instance of Car v which is of the type Vehicle (I think this is upcasting. Learn more...). The abstract method engine is implemented in Car but we are hiding that implementation.
+
+**When to use Abstract Methods and Classes**
+Abstract methods are usually used when 2 or more subclasses would do somehting similar but it is done in different ways with different implementation. Each subclasses will define the implementation in the way it's wanted in that class.
+
+Abstract classes on the other hand are used to provide generic types of behaviors at the top of oop class hierarchy and it's subclasses will provide the details of abstract class.
+
+####Interface
+Interface can be called a pure abstract class. They syntatically similar to classes. But an instance of these classes cannot be created. Also their methods are declared without any body. A complete abstraction is possible using interface. 
+
+`interface interface_name {}`
+
+Ex:
+```
+interface Moveable {
+  int AVERAGE-SPEED = 40;
+  void move();
+}
+```
+When an interface as above is declared the compiler converts a method as `public` and `abstract` and data members as `public`, `static`, and `final`.
+
+```
+//This is what the compiler converts an interface into
+interface Movabel {
+  public static final int AVERAGE-SPEED = 40;
+  public abstract  void move();
+}
+```
+**Rules for using Interfaces**
+1. Methods inside Interface must not ve static, final, native or strictfp.
+2. All variables inside interface are implicitly public static final variables (constants).
+3. All methods inside interface are implicitly public and abstract.
+4. Interface can extend one or more other interfaces.
+5. Interface cannot implement a class.
+6. Interface can be nested inside another interface.
+
+Ex:
+```
+interface Moveable {
+  int AVG-SPEED = 40;
+  void move();
+}
+
+class Vehicle implements Moveable {
+  public void move() {
+    System.out.print in ("Average speed is " + AVG-SPEED);
+  }
+
+  public static void main(String[] args) {
+    Vehicle vc = new Vehicle();
+    vc.move();
+  }
+} 
+```
+
+**Interfaces supports Multiple Inheritance**
+Though classes in java doesn't support multiple inheritance, a class can implement more than one interfaces.
+
+Ex:
+```
+interface Moveable {
+  boolean isMovable();
+}
+
+interface Rollable {
+  boolean isRollable();
+}
+
+class Tyre implements Moveable, Rollable {
+  int width;
+
+  boolean isMovable() {
+    return true;
+  }
+
+  boolean isRollable() {
+    return true;
+  }
+
+  public static void main(String args[]) {
+   Tyre tr = new Tyre();
+   System.out.println(tr.isMoveable()); //true
+   System.out.println(tr.isRollable()); //true
+  }
+}
+```
+**Interfaces extends other Interfaces**
+Classes implements an Interface but an interface can extend other interfaces.
+
+```
+interface NewsPaper {
+  news();
+}
+
+interface Magazine extends NewsPaper {
+  colorful();
+}
+```
+**Difference between an interface and an abstract class**
+```
+Abstract Class                          | Interface
+------------------------------------------------------------------------------------
+Abstract class is a class that contians | Interface contains only method declaration
+more than on abstract methods. Abstract | but no implementation. Classes that
+methods are implemented by subclasses   | implement interfaces must provide method
+                                        | definition.
+                                        |
+Abstract class is declared with a       | Interface is a pure abstract class.
+abstract keyword                        | It starts with a interface keyword. 
+                                        |
+Abstract class can contain concrete     | It can only have abstract methods and
+mehtods                                 | final variables
+                                        |
+These are useful when we need some      | These are useful where all the 
+general classes that needs to be        | properties needs to be implemented
+implemented with specialized behavior   |
+by subclasses
+```
+#### Nested Class
