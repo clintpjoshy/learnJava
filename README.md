@@ -981,6 +981,40 @@ parent
 child
 ```
 Ex: Child class calling parent class constructor using super
+```
+class Parent {
+  String name;
+  public Parent(String n) {
+    name = n;
+  }
+}
+
+public class Child extends Parent {
+  String name;
+
+  public Child(String n1, String n2) {
+    super(n1); // passing argument to parent class constructor
+    this.name = n2;
+  }
+
+  public void details() {
+    System.out.println(super.name + " and " + name);
+  }
+
+  public static void main(String[] args) {
+    Child cobj = new Child("Parent", "Child");
+    cobj.detail(); // Parent and Child
+  }
+}
+```
+
+**Note:** When calling a parent class constructor from the child class using `super` keyword, `super` keyword should be the first line in the method/constructor of the child class.
+
+**Super Class reference point to Sub class object** 
+When class B extends from class A.
+`A a = new B()` is a correct syntax because of `IS-A` relationship between A and B.
+
+**Note:** We cannot use both this() and super() in a constructor. Because both of them needs to be the first statement inside a constructor.
 
 #### Aggregation (HAS-A)
 HAS-A relationship is based on usage and not based on inheritance. Class A has-a relationship with class B, if code in class A has a reference to an instance in class B.
