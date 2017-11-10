@@ -1426,7 +1426,7 @@ class B extends A {
 }
 ```
 
-**Abstract class with concrete(normal) method.
+**Abstract class with concrete(normal) method.**
 Like discussed above an abstract class can also have concrete (normal) methods as well along with abstract methods.
 
 ```
@@ -1483,7 +1483,7 @@ Abstract methods are usually used when 2 or more subclasses would do somehting s
 
 Abstract classes on the other hand are used to provide generic types of behaviors at the top of oop class hierarchy and it's subclasses will provide the details of abstract class.
 
-####Interface
+#### Interface
 Interface can be called a pure abstract class. They syntatically similar to classes. But an instance of these classes cannot be created. Also their methods are declared without any body. A complete abstraction is possible using interface. 
 
 `interface interface_name {}`
