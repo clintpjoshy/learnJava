@@ -839,12 +839,12 @@ In this case **Vehicle** is a **Super Class** of **Car** and **Car** is a **Sub 
 Also Car **IS\-A** Vehicle.
 
 Inheritance has many advantages:
-	* Code reusability. Methods and properties that can be common among many children class and can be reused.
-	* It also helps is creating polymorphism by allowing method overriding.
+* Code reusability. Methods and properties that can be common among many children class and can be reused.
+* It also helps is creating polymorphism by allowing method overriding.
 
 Inheritance also has many disadvantages:
-	* Parent and Child are tightly coupled.
-	* That means that any changes to parent class will result in changes in child classes and therefore they cannot be independent to each other.
+* Parent and Child are tightly coupled.
+* That means that any changes to parent class will result in changes in child classes and therefore they cannot be independent to each other.
 
 Ex:
 ```
@@ -981,7 +981,7 @@ parent
 child
 ```
 Ex: Child class calling parent class constructor using super
-```
+
 #### Aggregation (HAS-A)
 HAS-A relationship is based on usage and not based on inheritance. Class A has-a relationship with class B, if code in class A has a reference to an instance in class B.
 
