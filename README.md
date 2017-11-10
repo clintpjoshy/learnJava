@@ -614,26 +614,26 @@ public class Test {
 
 #### Modifiers
 Modifiers are certain keywords that are used to change what a variable, class, constructor etc name means. Thery are 2 categories of modifiers.
-	* Access Control Modifier
-	* Non Access Modifier
+* Access Control Modifier
+* Non Access Modifier
 
 #### Access Control Modifiers
 There are 4 access control modifers that are used for classes, variables, and constructors.
-	* Default: Elements with default in their name has scope only in the same package.
-	* Public: Public keyword in variable etc name will make it visible everywhere.
-	* Protected: These elements will be available in the package and any subclasses.
-	* Private: These elements have scope only within classes that the elements are defined.
+* Default: Elements with default in their name has scope only in the same package.
+* Public: Public keyword in variable etc name will make it visible everywhere.
+* Protected: These elements will be available in the package and any subclasses.
+* Private: These elements have scope only within classes that the elements are defined.
 
 Like the name defines, these keywords will control where a variable can be accessed and available.
 (Check in image folder for image representing the access modifiers).
 
 #### Non-Access Modifiers
 These modifiers, do not affect the accessibility of the variables and methods. They provide special properties to the variables and methods. There are 5 different types non access modifiers like:
-	* Final
-	* Static
-	* Transient
-	* Synchronized
-	* Volatile
+* Final
+* Static
+* Transient
+* Synchronized
+* Volatile
 
 **Final**
 A variable, or such entities with a `final` modifier it's contents are prevented from being modified. This can be used when declaring a variable, method, or a class.
