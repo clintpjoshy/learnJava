@@ -1303,6 +1303,7 @@ class B {
     obj.msg(); //Hello
   }
 }
+```
 
 3. Import all the classes from a package.
 If a whole package with it's classes and interfaces needs to be imported that can be done as follows.
