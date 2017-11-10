@@ -1563,3 +1563,132 @@ implemented with specialized behavior   |
 by subclasses
 ```
 #### Nested Class
+A class can be defined in another class and this is called nested classes. Scope of a nested class is bounded by it's enclosing class.
+
+Ex:
+```
+class Outer {
+  class Inner {
+  }
+}
+```
+
+Advantages of Nested classes.
+1. Logically group  classes that are used at one place.
+2. Encapsulation.
+3. Readable and maintainable code.
+
+2 types of Nested Classes.
+**Static Nested Class**
+If a inner class has static modifier applied to it then it's called **static nested class**. If the inner class is a static member, it can only access static members of it's outer class.
+
+**Non Static Nested class**
+This is the most important among nested classes. It is also known as **Inner Class**. It can access all the variables and methods of the outer class including it's private members and methods and can refer to them directly. But Outer class cannot access members of the inner class. Inner class can be declared private, public, protected, or with default access. But outer class can be only public or default access.
+
+An inner class can only be created within the scope of a outer class. Java compiler generates an error if inner class is instantiated outside of an outer class.
+
+A non static nested class that is created outside a method is called **Member inner class**.
+
+A non static nested class that is created inside a method is called **local inner class**. If a  mehtod inside a local inner class needs to be called then this class needs to be instantiated inside this method. Only abstract and final access modifiers can be used with local inner class.
+
+Ex: Inner class (Member class)
+```
+class Outer {
+  public void display() {
+    Inner in = new Inner();
+    in.show();
+  }
+
+  class Inner {
+    public void show() {
+      System.out.println("Inside inner");
+    }
+  }
+}
+
+class Test {
+  public static void main(String[] args) {
+    Outer ot = new Outer();
+    ot.display(); // Inside inner
+  }
+}
+```
+
+Ex: Inner class inside a method(local inner class)
+```
+class Outer {
+  int count;
+  public void display() {
+    for(int i = 0; i < 5; i++) {
+      class Inner {
+        public void show() {
+          System.out.println("Inside inner " + (count++));
+        }
+      }
+      Inner in = new Inner();
+      in.show();
+    }
+  }
+}
+
+class Test {
+  public static void main(String[] args) {
+    Outer ot = new Outer();
+    ot.displey();
+  }
+}
+```
+
+Output is:
+ ```
+Inside inner 0
+Inside inner 1
+Inside inner 2
+Inside inner 3
+Inside inner 4
+```
+
+Ex: Inner class instantiated outside Outer class
+```
+class Outer {
+  int count;
+  public void display() {
+    Inner in = new Inner();
+    in.show();
+  }
+
+  class Inner {
+    public void show() {
+      System.out.println("Inside inner " + (++count));
+    }
+  }
+}
+
+class Test {
+  public static void main(String[] args) {
+    Outer ot = new Outer();
+    Outer.Inner in = ot.new Inner();
+    in.show(); // Inside inner 1
+  }
+}
+```
+
+**Annonymous class**
+A class without a name is called Annonymous class.
+```
+interface Animal {
+  void type();
+}
+
+public class Atest{
+  public static void main(String args[]) {
+    Animal an = new Animal() { //Annonymous class created
+      public void type() {
+        System.out.println("Annonymous animal");
+      }
+    }
+    an.type();
+  }
+}
+```
+In this case an interface Animal is implemented by creating a class and the name of the class is decided by the compiler. This annonymous class can be used to implement the type method.
