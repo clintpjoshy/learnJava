@@ -421,7 +421,6 @@ This occurs when 2 or more methods have same name but different parameters in a 
 
 When java looks for a particular method using it's parameter type and couldn't find an exact match, it'll try finding the method using converting the data type of parameters (type casting). This is shown in the below example.
 
-	```
           class Area {
             void find (long l, long d) {
               System.out.println("Area is " + (l * d));
@@ -439,7 +438,6 @@ When java looks for a particular method using it's parameter type and couldn't f
             /* This will output based on the following algorithm: check for find method with 2 parameters which are long. If that couldn't be found then convert find (int int ) to find (long long). i.e. ar.find (8, 5) is of type find (int int). This will be converted to find (long long) using typecasting. */
             }
           }
-	```
 
 #### Constructors in Java
 Constructor is a special method that is used to initialize an object. Every class has a constructor. When creating a class if a constructor is not defined, java compiler creates one for us by default. There is not need for a return type on constructor method. A constructor should have same name as the class. The modifier type for a constructor cannot be abstract, static, final or syncronized.
