@@ -1179,7 +1179,6 @@ We cannot override a static method because static methods are bound to a class a
 
 This is a process where a overriden method is resolved at runtime. When a overriden methed is called by a reference, java determines which method (with same name) needs to be executed base on the type of the object it refers to. Therefore type of method detemines the method to be called.
 
-```
 #### Upcasting and Downcasting
 (later)
 
